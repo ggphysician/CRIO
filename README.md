@@ -28,6 +28,6 @@ About the Author 👋 GG (GitHub: ggphysician) is an Emergency Medicine physicia
 
 Founder of GP Data Services, a company focused on data governance & automation in clinical research. Experience in Python, SQL, data parsing, and automation for research and business applications. Passionate about solving inefficiencies in clinical workflows using technology and AI-driven solutions.
 
-Future Plans This project is part of a growing portfolio of automation tools. Next steps are to combine into a single python file.  
+Future Plans This project is part of a growing portfolio of automation tools. Next steps are to combine into a single python file.  I am also planning on learning pandas library for more efficient handling of larger files.
 
 Future enhancements: ✅ Support for additional medical data formats ✅ Integration with OCR tools for scanned medical records ✅ Implementation of ML-driven diagnosis categorization
