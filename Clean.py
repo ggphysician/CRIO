@@ -228,7 +228,7 @@ medical_entries = cur.fetchall()
 for multi_record, diagnosis in medical_entries:
     best_match, score, _ = process.extractOne(diagnosis, crio_diagnoses, scorer=fuzz.token_sort_ratio)
     
-    if score >= 80:  # Only update if match confidence is high
+    if score >= 90:  # Only update if match confidence is high
         cur.execute("UPDATE Medical SET diagnosis = ? WHERE multi_record = ?", (best_match, multi_record))
 
 # Join Tables to create CRIO-ready output
@@ -239,7 +239,8 @@ SELECT
     Crio.crio_diagnosis, 
     Medical.start, 
     Medical.stop, 
-    Crio.crio_key
+    Crio.crio_key,
+    Multi.multi_record_id
 FROM 
     Medical
 INNER JOIN 
@@ -251,7 +252,7 @@ INNER JOIN
     results = cur.fetchall()
 
     # Define CSV headers
-    headers = ["patient_id", "Finding", "Start", "Stop", "crio_key"]
+    headers = ["patient_id", "Finding", "Start", "Stop", "crio_key", "multi_record_id"]
 
     # Export to CSV
     with open(output_file, mode='w', newline='', encoding='utf-8') as file:
@@ -277,6 +278,9 @@ print("Database connection closed successfully ✅ ")
 
 
 
-# Next STeps, write new code to take the previous output and compare to new
+# next need to includ multi record in order to better compare before and after
+
+
+
 
 
